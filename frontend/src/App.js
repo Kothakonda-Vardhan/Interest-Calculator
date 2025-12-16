@@ -12,7 +12,7 @@ function App() {
   const calculate = async () => {
     try {
       setLoading(true);
-      const res = await axios.post("/calculate", {
+      const res = await axios.post("https://interest-calculator-4rem.onrender.com/calculate", {
         principal,
         rate,
         interest,

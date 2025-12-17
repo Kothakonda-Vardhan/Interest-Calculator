@@ -65,5 +65,21 @@ Interest-Calculator/
 ---
 
 
-## 📄 License
-This project is created for educational purposes.
+## 🔁 Application Flow
+**User Input**  
+⬇️  
+**React Frontend**  (Axios sends POST request)  
+⬇️  
+**Node.js + Express Backend**  (Handles API request)  
+⬇️  
+**Google Sheets API**  (Writes input values)  
+⬇️  
+**Google Sheets**  (Formulas automatically calculate interest)  
+⬇️  
+**Google Sheets API**  (Reads calculated results)  
+⬇️  
+**Node.js Backend**  (Returns JSON response)  
+⬇️  
+**React Frontend**  (Displays results to the user)
+
+---

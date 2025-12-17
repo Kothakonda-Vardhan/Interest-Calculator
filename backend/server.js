@@ -12,7 +12,7 @@ app.post("/calculate", async (req, res) => {
     const result = await calculate(principal, interest, rate);
     res.json(result);
   } catch (err) {
-    console.error("BACKEND ERROR 👉", err);
+    console.error("BACKEND ERROR ", err);
     res.status(500).json({
       error: err.message || "Internal Server Error"
     });

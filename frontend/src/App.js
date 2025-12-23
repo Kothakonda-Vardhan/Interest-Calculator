@@ -10,6 +10,9 @@ function App() {
   const [loading, setLoading] = useState(false);
 
   const calculate = async () => {
+    if(principal<=0||rate<=0||interest<=0){
+      alert("give positive values");
+    }
     try {
       setLoading(true);
       const res = await axios.post("https://interest-calculator-4rem.onrender.com/calculate", {

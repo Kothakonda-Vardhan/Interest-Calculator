@@ -12,6 +12,7 @@ function App() {
   const calculate = async () => {
     if(principal<=0||rate<=0||interest<=0){
       alert("give positive values");
+      return;
     }
     try {
       setLoading(true);

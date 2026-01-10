@@ -95,3 +95,73 @@ button:disabled {
   margin-bottom: 10px;
   font-size: 15px;
 }
+
+.tenure-container {
+  margin-top: 16px;
+}
+
+.tenure-container label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.tenure-row {
+  display: flex;
+  gap: 8px;
+  max-width: 300px;   /* tighter & centered */
+}
+
+.tenure-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tenure-box span {
+  font-size: 11px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.tenure-box input {
+  width: 100%;
+  padding: 7px 6px;
+  font-size: 13px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.tenure-box input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+}
+
+.frequency-container {
+  margin-top: 20px;
+}
+
+.frequency-container label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.frequency-container select {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.frequency-container select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}

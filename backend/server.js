@@ -8,11 +8,12 @@ app.use(express.json());
 
 app.post("/calculate", async (req, res) => {
   try {
-    const { principal, interest, rate } = req.body;
-    const result = await calculate(principal, interest, rate);
+    const { principal, tenure, rate, frequency } = req.body;
+    console.log("REQ BODY:", req.body);
+    const result = await calculate(principal, tenure, rate, frequency);
     res.json(result);
   } catch (err) {
-    console.error("BACKEND ERROR 👉", err);
+    console.error("BACKEND ERROR", err);
     res.status(500).json({
       error: err.message || "Internal Server Error"
     });

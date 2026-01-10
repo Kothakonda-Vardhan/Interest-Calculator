@@ -1,26 +1,30 @@
 const { google } = require("googleapis");
+const credentials = JSON.parse(process.env.GOOGLE_CREDENTIALS);
+credentials.private_key = credentials.private_key.replace(/\\n/g, "\n");
 
 const auth = new google.auth.GoogleAuth({
-  credentials: JSON.parse(process.env.GOOGLE_CREDENTIALS),
+  credentials,
   scopes: ["https://www.googleapis.com/auth/spreadsheets"]
 });
 const sheets = google.sheets({ version: "v4", auth });
 
-const SPREADSHEET_ID = process.env.SHEET_ID;
+const SPREADSHEET_ID = "1XGYTqfRDp6dQvOyjRuBpFfTNDbi34GAIVSygJyDmINg";
 
 
-async function calculate(principal, interest, rate) {
+async function calculate(principal, tenure, rate, frequency) {
+  console.log("Writing to sheets:", principal, tenure, rate, frequency);
 
   // Write to Input sheet
   await sheets.spreadsheets.values.update({
     spreadsheetId: SPREADSHEET_ID,
-    range: "input!B2:B4",
+    range: "input!B2:B5",
     valueInputOption: "USER_ENTERED",
     requestBody: {
       values: [
         [principal],
-        [interest],
-        [rate]
+        [tenure],
+        [rate],
+        [frequency]
       ]
     }
   });
@@ -32,8 +36,8 @@ async function calculate(principal, interest, rate) {
   });
 
   return {
-    simpleInterest: response.data.values[0][0],
-    compoundInterest: response.data.values[1][0]
+    MaturityAmount: response.data.values[0][0],
+    Interest: response.data.values[1][0]
   };
 }
 
